@@ -6,6 +6,7 @@ import { downloadFile } from '../utils';
 export const useYoutubeDownload = () => {
   const handleDownload = async (
     options: IDownloadYt,
+    fileName : string,	  
     userId: string,
     operationId: string
   ) => {
@@ -13,7 +14,7 @@ export const useYoutubeDownload = () => {
       const blob = await downloadYtdlVideo(options, userId, operationId);
       const newBlob = new Blob([blob]);
       const validExtension = extensionEquivalents[options.extension];
-      downloadFile(newBlob, validExtension);
+      downloadFile(newBlob, validExtension, fileName);
     } catch (error) {
       console.error('Donwload API error: ', error);
     }

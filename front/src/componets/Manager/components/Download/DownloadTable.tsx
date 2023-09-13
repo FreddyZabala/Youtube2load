@@ -15,13 +15,14 @@ export const DownloadTable: FC<IDownloadTable> = ({ extension }) => {
   );
   const { handleDownload } = useYoutubeDownload();
   const formats = useMemo(() => formatsGrouped?.[extension] ?? [], [extension]);
+  const fileName=useYtVideoStore((state) => state.metaInfo.videoTitle);
 
   const getQualityLabel = (format: INiceFormat) => ({
     mp3: format.audioQuality ? audioEquivalents[format.audioQuality] : '',
     mp4: format.videoQuality,
-    mp4WithoutAudio: format.videoQuality,
+    mp4WithoutAudio: format.videoQuality,    
   });
-
+  
   return (
     <div className="flex flex-col gap-5">
       <table className="max-w-[700px] table-auto border-separate border-spacing-x-10 border-spacing-y-2">
@@ -53,7 +54,8 @@ export const DownloadTable: FC<IDownloadTable> = ({ extension }) => {
                         extension,
                         itag: format.itag,
                       },
-                      userId,
+                      fileName,
+                      userId,                      
                       format.operationId
                     )
                   }

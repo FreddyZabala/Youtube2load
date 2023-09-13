@@ -1,6 +1,6 @@
 import { TExtension, TFormatsGrouped } from '../types/conversion';
 
-export const BASE_PATH_EXPRESS = 'http://localhost:3001';
+export const BASE_PATH_EXPRESS = 'http://192.168.1.7:3001';
 
 export const audioEquivalents = {
   AUDIO_QUALITY_LOW: 'Quality Low',

@@ -5,8 +5,8 @@ export type TExtension = 'mp4' | 'mp3';
 
 export interface IDownloadYt {
   ytUrl: string;
-  extension: TFormatsGrouped;
-  itag: number;
+  extension: TFormatsGrouped; 
+  itag: number;  
 }
 
 type videFormatRequired = RequiredNonNullableObject<ytdl.videoFormat>;
